@@ -142,7 +142,7 @@ int main(int argc, char** argv)
         for (int j = 0; j < (pic[1].width * pic[1].height); j++) {
             RGB pixelJ = pic[1].img[j];
             int similarityJ = pixelCmp(pixel0, pixelJ);
-            if (similarityJ > similarity) {
+            if (similarityJ < similarity) {
                 similarity = similarityJ;
                 pixel1 = pixelJ;
             }
