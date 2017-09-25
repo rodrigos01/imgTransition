@@ -31,6 +31,13 @@ typedef struct {
     RGB* img;
 } Img;
 
+typedef struct Node {
+    RGB pixel;
+    int distanceFromWhite;
+    struct Node* left;
+    struct Node* right;
+} Node;
+
 // Protótipos
 void load(char* name, Img* pic);
 void valida();
@@ -134,20 +141,14 @@ int main(int argc, char** argv)
 	memset(pic[2].img, 0, pic[2].width*pic[2].height*3);
 #endif // DEMO
 
-    int size = pic[0].width * pic[0].height;
+    //int size = pic[0].width * pic[0].height;
+    Node* pic1Tree = sorted(pic[1].img, (pic[1].width * pic[1].height));
 	for (int i = 0; i < (pic[0].width * pic[0].height); i++) {
         RGB pixel0 = pic[0].img[i];
         RGB pixel1 = pixel0;
-        int similarity = 0;
-        for (int j = 0; j < (pic[1].width * pic[1].height); j++) {
-            RGB pixelJ = pic[1].img[j];
-            int similarityJ = pixelCmp(pixel0, pixelJ);
-            if (similarityJ < similarity) {
-                similarity = similarityJ;
-                pixel1 = pixelJ;
-            }
+        int pic1Size = (pic[1].width * pic[1].height) - i;
+        for (int j = 0; j < pic1Size; j++) {
         }
-        printf("Similarity %d: %d\n", i, similarity);
         pic[2].img[i] = pixel1;
 	}
     // Cria textura para a imagem de saída
@@ -157,11 +158,36 @@ int main(int argc, char** argv)
     glutMainLoop();
 }
 
-int pixelCmp(RGB pixel1, RGB pixel2) {
-    double differenceR = pow((pixel1.r - pixel2.r), 2);
-    double differenceG = pow((pixel1.g - pixel2.g), 2);
-    double differenceB = pow((pixel1.b - pixel2.b), 2);
-    return sqrt(differenceR + differenceG + differenceB);
+Node* sorted(RGB* img, int size)
+{
+    RGB white;
+    white.r = 255;
+    white.g = 255;
+    white.b = 255;
+
+    int half = size / 2;
+    struct Node n;
+    n.pixel = img[half];
+    n.distanceFromWhite = pixelCmp(white, n.pixel);
+
+    RGB* leftArray;
+    for (int i = 0; i < half; i++) {
+        leftArray[i] = img[i];
+    }
+    RGB* rightArray;
+    for (int i = half; i < size; i++) {
+        rightArray[i - half] = img[i];
+    }
+
+    n.left = sorted(leftArray, size);
+    n.right = sorted(rightArray, size);
+
+    return &n;
+}
+
+int pixelCmp(RGB pixel1, RGB pixel2)
+{
+    return sqrt(pow((pixel1.r - pixel2.r), 2) + pow((pixel1.g - pixel2.g), 2) + pow((pixel1.b - pixel2.b), 2));
 }
 
 // Funcao de comparacao para qsort: ordena por R, G, B (desempate nessa ordem)

@@ -380,10 +380,11 @@
 
 1504289654 /home/13205014/DriveH/soft_basico/t1/transition/lib/SOIL/stbi_DDS_aug_c.h
 
-1506120673 source:/home/13205014/DriveH/soft_basico/t1/transition/main.c
+1506381182 source:/home/13205014/DriveH/soft_basico/t1/transition/main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
+	<math.h>
 	<windows.h>
 	<OpenGL/gl.h>
 	<OpenGL/glu.h>
