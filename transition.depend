@@ -409,3 +409,84 @@
 
 1504289654 /home/13205014/DriveH/soft_basico/t1/transition/SOIL.h
 
+1507250315 source:/home/rodrigo/dev/c/imgTransition/lib/SOIL/image_DXT.c
+	"image_DXT.h"
+	<math.h>
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+
+1507250315 /home/rodrigo/dev/c/imgTransition/lib/SOIL/image_DXT.h
+
+1507250315 source:/home/rodrigo/dev/c/imgTransition/lib/SOIL/image_helper.c
+	"image_helper.h"
+	<stdlib.h>
+	<math.h>
+
+1507250315 /home/rodrigo/dev/c/imgTransition/lib/SOIL/image_helper.h
+
+1507250315 source:/home/rodrigo/dev/c/imgTransition/lib/SOIL/SOIL.c
+	<windows.h>
+	<wingdi.h>
+	<GL/gl.h>
+	<OpenGL/gl.h>
+	<Carbon/Carbon.h>
+	<GL/gl.h>
+	"SOIL.h"
+	"stb_image_aug.h"
+	"image_helper.h"
+	"image_DXT.h"
+	<stdlib.h>
+	<string.h>
+
+1507250315 /home/rodrigo/dev/c/imgTransition/lib/SOIL/SOIL.h
+
+1507250315 /home/rodrigo/dev/c/imgTransition/lib/SOIL/stb_image_aug.h
+	<stdio.h>
+
+1507250315 source:/home/rodrigo/dev/c/imgTransition/lib/SOIL/stb_image_aug.c
+	"stb_image_aug.h"
+	<math.h>
+	<string.h>
+	<stdio.h>
+	<stdlib.h>
+	<memory.h>
+	<assert.h>
+	<stdarg.h>
+	"stbi_DDS_aug.h"
+	"stbi_DDS_aug_c.h"
+
+1507250315 /home/rodrigo/dev/c/imgTransition/lib/SOIL/stbi_DDS_aug.h
+
+1507250315 /home/rodrigo/dev/c/imgTransition/lib/SOIL/stbi_DDS_aug_c.h
+
+1507250433 source:/home/rodrigo/dev/c/imgTransition/main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	<windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GLUT/glut.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<GL/glut.h>
+	"SOIL.h"
+
+1504289654 /home/rodrigo/dev/c/imgTransition/include/GL/glut.h
+	"freeglut.h"
+
+1504289654 /home/rodrigo/dev/c/imgTransition/include/GL/freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1504289654 /home/rodrigo/dev/c/imgTransition/include/GL/freeglut_std.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1504289654 /home/rodrigo/dev/c/imgTransition/include/GL/freeglut_ext.h
+
+1507250315 /home/rodrigo/dev/c/imgTransition/SOIL.h
+

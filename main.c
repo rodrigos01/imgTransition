@@ -138,16 +138,25 @@ int main(int argc, char** argv)
 	for (int i = 0; i < (pic[0].width * pic[0].height); i++) {
         RGB pixel0 = pic[0].img[i];
         RGB pixel1 = pixel0;
-        int similarity = 0;
-        for (int j = 0; j < (pic[1].width * pic[1].height); j++) {
+        int similarity = 500;
+        int pic1Size = (pic[1].width * pic[1].height) - i;
+        int index = 0;
+        for (int j = 0; j < pic1Size; j++) {
             RGB pixelJ = pic[1].img[j];
             int similarityJ = pixelCmp(pixel0, pixelJ);
             if (similarityJ < similarity) {
                 similarity = similarityJ;
                 pixel1 = pixelJ;
+                index = j;
+            }
+            if (similarity == 0) {
+                break;
             }
         }
-        printf("Similarity %d: %d\n", i, similarity);
+        for (int k = index; k < pic1Size; k++) {
+            pic[1].img[k] = pic[1].img[k + 1];
+        }
+        //printf("Similarity %d: %d\n", i, similarity);
         pic[2].img[i] = pixel1;
 	}
     // Cria textura para a imagem de saída
