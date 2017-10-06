@@ -138,13 +138,13 @@ int main(int argc, char** argv)
 
     int area = (pic[0].width * pic[0].height);
 	for (int i = 0; i < area; i++) {
-        RGB pixel0 = pic[1].img[i];
+        RGB pixel0 = pic[0].img[i];
         RGB pixel1 = pixel0;
         int similarity = 500;
         int pic1Size = area - i;
         int index = 0;
         for (int j = 0; j < pic1Size; j++) {
-            RGB pixelJ = pic[0].img[j];
+            RGB pixelJ = pic[1].img[j];
             int similarityJ = pixelCmp(pixel0, pixelJ);
             if (similarityJ < similarity) {
                 similarity = similarityJ;
@@ -156,10 +156,11 @@ int main(int argc, char** argv)
             }
         }
         for (int k = index; k < pic1Size; k++) {
-            pic[0].img[k] = pic[0].img[k + 1];
+            pic[1].img[k] = pic[1].img[k + 1];
         }
         pic[2].img[i] = pixel1;
 	}
+    printf("DONE\n");
     // Cria textura para a imagem de saída
 	tex[2] = SOIL_create_OGL_texture((unsigned char*) pic[2].img, pic[2].width, pic[2].height, SOIL_LOAD_RGB, SOIL_CREATE_NEW_ID, 0);
 
